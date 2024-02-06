@@ -1,7 +1,16 @@
 import { SectionTitle } from "@/components/SectionTitle";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+
+import { cn } from "@/lib/utils";
+import Paragraph from "./Character";
+
+const paragraph =
+  "HELLO, I'M TRAN HIEN. I'M A FRONT-END DEVELOPER WITH 6 MONTHS OF EXPERIENCE.I LOVE DESIGN AND MAKE " +
+  "A ELEGANT AND MODERN DESIGN IN TO REAL SITES.";
+
+const secondParagraph =
+  "I ENJOY BUILDING SITES. MY FOCUS IS REACT (NEXT.JS) AND JAVA (SPRING BOOT).";
 
 export const Introduce = () => {
   return (
@@ -12,8 +21,16 @@ export const Introduce = () => {
       <div className="md:flex-1 ml-0 md:pl-28 mb-10 md:mb-0">
         <SectionTitle number={"01"} value={"Introduce"} />
       </div>
-      <div className="md:flex-1 text-2xl md:text-5xl uppercase font-medium">
-        <p>
+
+      <div
+        className={cn("md:flex-1 text-2xl md:text-5xl uppercase font-medium")}
+      >
+        <Paragraph paragraph={paragraph} />
+
+        <div className="mt-8">
+          <Paragraph paragraph={secondParagraph} />
+        </div>
+        {/* <p>
           Hello, {"I'm"} Tran Hien. {"I'm"} a{" "}
           <span className="font-bold">front-end developer</span> with 6 months
           of experience.
@@ -26,13 +43,13 @@ export const Introduce = () => {
           I enjoy building sites. My focus is{" "}
           <span className="font-bold">React (Next.js)</span> and{" "}
           <span className="font-bold">Java (Spring boot)</span>.
-        </p>
-        <div className="flex flex-col lg:flex-row gap-x-10 gap-y-10 md:gap-x-0 md:gap-y-10 justify-between items-start font-medium mt-32">
+        </p> */}
+        <div className="flex flex-col lg:flex-row gap-x-10 gap-y-10 md:gap-x-0 md:gap-y-10 justify-between items-start lg:items-center font-medium mt-32">
           <div className="max-w-[300px] text-2xl">
             Skill in both front-end and back-end. But My main{" "}
             <span className="underline">focus is front-end</span>
           </div>
-          <Link href="#" className="text-lg flex items-center gap-x-2">
+          <Link href="#" className="text-lg flex items-center  gap-x-2">
             More about me <ArrowRight />
           </Link>
         </div>

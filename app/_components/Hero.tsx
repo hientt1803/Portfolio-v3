@@ -1,10 +1,14 @@
-import { ArrowDown, GithubIcon, Linkedin, Mail, Facebook } from "lucide-react";
+"use client";
 
 import { Poppins } from "next/font/google";
+import { ArrowDown } from "lucide-react";
+
+import { useState } from "react";
+import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 import { Button } from "../../components/ui/button";
-import Link from "next/link";
+
 import {
   Tooltip,
   TooltipContent,
@@ -12,15 +16,23 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-import { socials } from "@/lib/data";
-
 const textFont = Poppins({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
+// Animation
+import { motion } from "framer-motion";
+import useMousePosition from "@/lib/hooks/useMousePosition";
+
+import styles from "./sass/Hero.module.scss";
+
 export const Hero = () => {
-  const data: typeof socials = socials;
+  const [isHovered, setIsHovered] = useState(false);
+
+  const { x, y } = useMousePosition();
+
+  const size = isHovered ? 400 : 40;
 
   return (
     <div
@@ -47,9 +59,33 @@ export const Hero = () => {
       </div>
 
       {/* Main TITLE */}
-      <span className="text-[6.875rem] font-black mt-46 pt-28 hidden lg:block">
+      <motion.span
+        className={styles.mask}
+        animate={{
+          WebkitMaskPosition: `${x - size / 2}px ${y - size / 2}px`,
+
+          WebkitMaskSize: `${size}px`,
+        }}
+        transition={{ type: "tween", ease: "backOut", duration: 0.5 }}
+      >
+        <span
+          className="text-[4.275rem] lg:text-[6.875rem] font-black lg:mt-24 hidden lg:block cursor-default"
+          onMouseEnter={() => {
+            setIsHovered(true);
+          }}
+          onMouseLeave={() => {
+            setIsHovered(false);
+          }}
+        >
+          <span className="ml-32">{"I'm"} Making a </span>
+          <br /> <span>good website base on </span> <br />
+          <span className="float-right">your requiments.</span>
+        </span>
+      </motion.span>
+
+      <span className="text-[4.275rem] lg:text-[6.875rem] font-black mt-36 lg:mt-24 hidden lg:block cursor-default">
         <span className="ml-32">Creative Front- </span>
-        <br /> <span className="">end Developer base </span> <br />
+        <br /> <span>end Developer base </span> <br />
         <span className="float-right">on Viet Nam.</span>
       </span>
 

@@ -72,8 +72,8 @@
   }
 
   body {
+    scroll-behavior: smooth !important;
     @apply bg-background text-foreground;
     height: 100%;
-    scroll-behavior: smooth;
   }
 }
