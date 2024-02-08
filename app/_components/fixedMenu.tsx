@@ -1,6 +1,9 @@
+"use client";
+
 import { SheetProvider } from "@/components/providers/SheetProvider";
 import { Button } from "@/components/ui/button";
 import { SheetClose, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { cn } from "@/lib/utils";
 import {
   GithubIcon,
   Linkedin,
@@ -11,6 +14,7 @@ import {
 } from "lucide-react";
 
 import Link from "next/link";
+import { useState } from "react";
 
 export const MenuSocialProvider = () => {
   return (
@@ -35,31 +39,44 @@ export const MenuSocialProvider = () => {
 };
 
 export const MenuButtonProvider = () => {
+  const [menuActive, setMenuActive] = useState(0);
+
   return (
     <div className="sticky bottom-10 right-0 float-right max-w-[100px]">
       {/* Menu */}
 
       <SheetProvider>
         <SheetTrigger asChild>
-          <Button size="sm" className="m-0 px-0 p-6 rounded-full">
+          <Button size="sm" className="rounded-full px-6">
             <MenuIcon className="w-8 h-8 text-white z-20" />
           </Button>
         </SheetTrigger>
         <SheetContent className="bg-black">
           <div className="flex flex-col justify-center h-full p-10">
-            <span className="text-lg text-neutral-400 underline mb-16">
+            <span className="text-md text-neutral-400 underline mb-16">
               Navigation
             </span>
             <ul className="flex flex-col gap-y-4">
               <li>
-                <Link href="/" className="underline text-5xl text-white">
+                <Link
+                  href="/"
+                  className={cn(
+                    "relative menu-link-active text-5xl text-neutral-400 transition-all hover:underline hover:text-white",
+                    menuActive === 0 && "active"
+                  )}
+                  onClick={() => setMenuActive(0)}
+                >
                   Home
                 </Link>
               </li>
               <li>
                 <Link
                   href="/"
-                  className="text-5xl text-neutral-400 transition-all hover:underline hover:text-white"
+                  className={cn(
+                    "relative menu-link-active text-5xl text-neutral-400 transition-all hover:underline hover:text-white",
+                    menuActive === 1 && "active"
+                  )}
+                  onClick={() => setMenuActive(1)}
                 >
                   Work
                 </Link>
@@ -67,19 +84,26 @@ export const MenuButtonProvider = () => {
               <li>
                 <Link
                   href="/"
-                  className="text-5xl text-neutral-400 transition-all hover:underline hover:text-white"
+                  className={cn(
+                    "relative menu-link-active text-5xl text-neutral-400 transition-all hover:underline hover:text-white",
+                    menuActive === 2 && "active"
+                  )}
+                  onClick={() => setMenuActive(2)}
                 >
                   About
                 </Link>
               </li>
             </ul>
 
-            <span className="text-lg text-neutral-400 underline mt-16">
+            <span className="text-md text-neutral-400 underline mt-16">
               GET IN TOUCH
             </span>
 
             <div className="flex gap-x-16 flex-wrap mt-8">
-              <Link href="/" className="text-xl text-neutral-50">
+              <Link
+                href="https://github.com/hientt1803"
+                className="text-xl text-neutral-50"
+              >
                 Github
               </Link>
               <Link href="/" className="text-xl text-neutral-50">

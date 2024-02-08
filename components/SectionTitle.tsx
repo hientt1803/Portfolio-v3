@@ -1,12 +1,12 @@
+import { inView, motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import React from "react";
-import { Separator } from "./ui/separator";
+import { useEffect, useRef, useState } from "react";
 
 interface SectionProps {
-  number: String;
-  value: String;
-  rightTitle?: String;
-  isDivider?: Boolean;
+  number: string;
+  value: string;
+  rightTitle?: string;
+  isDivider?: boolean;
 }
 
 export const SectionTitle = ({
@@ -15,6 +15,20 @@ export const SectionTitle = ({
   rightTitle,
   isDivider,
 }: SectionProps) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [lineWidth, setLineWidth] = useState<number>(0);
+
+  useEffect(() => {
+    const divider = document.querySelector(".divider-section");
+
+    if (divider) {
+      inView(divider, () => {
+        console.log("Element has entered the viewport");
+        setLineWidth(100);
+      });
+    }
+  }, []);
+
   return (
     <div>
       <div className="flex justify-between flex-wrap items-center uppercase">
@@ -30,7 +44,13 @@ export const SectionTitle = ({
           </span>
         )}
       </div>
-      {isDivider && <Separator className="h-[1.5px] mt-3 bg-black" />}
+      {isDivider && (
+        <motion.div
+          ref={ref}
+          style={{ width: `${lineWidth}%` }}
+          className="h-[1.5px] mt-3 bg-black divider-section transition-all ease-linear delay-100"
+        />
+      )}
     </div>
   );
 };

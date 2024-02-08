@@ -76,4 +76,36 @@
     @apply bg-background text-foreground;
     height: 100%;
   }
+
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    height: 6px;
+    transform-origin: 0%;
+  }
+
+  .menu-link-active.active {
+    color: #fff;
+  }
+
+  .menu-link-active.active.menu-link-active::after {
+    display: block;
+  }
+
+  .menu-link-active::after {
+    content: '';
+    position: absolute;
+    left: -18%;
+    top: 50%;
+    bottom: 50%;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    display: none;
+  }
 }

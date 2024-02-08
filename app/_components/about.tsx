@@ -15,7 +15,7 @@ export const AboutMe = () => {
       </div>
 
       <div className="flex flex-col md:flex-row justify-center items-center gap-x-28 gap-y-10">
-        <div className="max-w-[30rem] font-normal text-2xl">
+        <div className="max-w-[30rem] font-medium text-2xl">
           During my free time,i’m learning english and i also enjoy playing
           video games, watching movies, and playing instrument like guitar,
           piano, drum.
