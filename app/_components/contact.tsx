@@ -2,6 +2,7 @@ import { SectionTitle } from "@/components/SectionTitle";
 import { Button } from "@/components/ui/button";
 import { ChevronUp } from "lucide-react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export const Contact = () => {
   return (
@@ -22,15 +23,28 @@ export const Contact = () => {
           tronghientran18@gmail.com
         </a>
 
-        <Button
-          variant={"default"}
-          size={"lg"}
-          className="mx-auto mt-32 rounded-full text-white text-lg"
+        <motion.button
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: {
+              duration: 1,
+              ease: "easeInOut",
+            },
+          }}
+          viewport={{ once: true }}
         >
-          <Link href="#" className="flex items-center gap-x-4">
-            <ChevronUp className="w-8 h-8" /> Back to top
-          </Link>
-        </Button>
+          <Button
+            variant={"default"}
+            size={"lg"}
+            className="mx-auto mt-32 rounded-full text-white text-lg"
+          >
+            <Link href="#" className="flex items-center gap-x-4">
+              <ChevronUp className="w-8 h-8" /> Back to top
+            </Link>
+          </Button>
+        </motion.button>
       </div>
     </section>
   );

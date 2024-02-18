@@ -21,13 +21,17 @@ export const MenuSocialProvider = () => {
     <div className="sticky bottom-10 left-0 max-w-[35px]">
       {/* Socials icons */}
       <div className="flex flex-col gap-y-6">
-        <Link href={"/"}>
+        <Link href={"https://github.com/hientt1803"}>
           <GithubIcon className="w-8 h-8" />
         </Link>
-        <Link href={"/"}>
+        <Link
+          href={
+            "https://www.linkedin.com/in/hi%E1%BA%BFn-tr%E1%BA%A7n-49b774256/"
+          }
+        >
           <Linkedin className="w-8 h-8" />
         </Link>
-        <Link href={"/"}>
+        <Link href={"mailto:tronghientran18@gmail.com"}>
           <Mail className="w-8 h-8" />
         </Link>
         <Link href={"/"}>
@@ -106,13 +110,19 @@ export const MenuButtonProvider = () => {
               >
                 Github
               </Link>
-              <Link href="/" className="text-xl text-neutral-50">
+              <Link
+                href="https://www.linkedin.com/in/hi%E1%BA%BFn-tr%E1%BA%A7n-49b774256/"
+                className="text-xl text-neutral-50"
+              >
                 LinkedIn
               </Link>
               <Link href="/" className="text-xl text-neutral-50">
                 Facebook
               </Link>
-              <Link href="/" className="text-xl text-neutral-50">
+              <Link
+                href="mailto:tronghientran18@gmail.com"
+                className="text-xl text-neutral-50"
+              >
                 Email
               </Link>
             </div>

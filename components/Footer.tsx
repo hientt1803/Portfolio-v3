@@ -15,7 +15,7 @@ export const Footer = () => {
         building by me.
       </div>
       <div className="flex justify-between gap-x-6 items-center">
-        <a href="#" target="_blank">
+        <a href="https://github.com/hientt1803" target="_blank">
           GitHub
         </a>
         <a href="#" target="_blank">

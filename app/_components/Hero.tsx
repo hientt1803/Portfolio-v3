@@ -27,7 +27,7 @@ import useMousePosition from "@/lib/hooks/useMousePosition";
 
 import styles from "./sass/Hero.module.scss";
 
-export const Hero = () => {
+export const Hero = () => { 
   const [isHovered, setIsHovered] = useState(false);
 
   const { x, y } = useMousePosition();
@@ -43,10 +43,28 @@ export const Hero = () => {
     >
       {/* Sub title*/}
       <div>
-        <div className="absolute top-24 left-72 max-xl:top-12 font-bold text-2xl max-xl:text-4xl hidden lg:block">
+        <motion.div
+          initial={{ opacity: 0, x: -110 }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+            transition: { duration: 1 },
+          }}
+          viewport={{ once: true }}
+          className="absolute top-24 left-72 max-xl:top-12 2xl:top-4 font-bold text-2xl max-xl:text-4xl hidden lg:block"
+        >
           TH
-        </div>
-        <div className="absolute top-8 right-56 max-xl:top-0 italic text-lg sm:text-3xl lg:text-xl max-xl:text-2xl">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 110 }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+            transition: { duration: 1 },
+          }}
+          viewport={{ once: true }}
+          className="absolute top-8 right-56 max-xl:top-0 2xl:top-[-1%] italic text-lg sm:text-3xl lg:text-xl max-xl:text-2xl"
+        >
           <span>Hi !</span> <br />
           <span>{"I'm"}Tran Trong Hien</span> <br />
           <span>
@@ -55,7 +73,7 @@ export const Hero = () => {
               work together.
             </a>{" "}
           </span>
-        </div>
+        </motion.div>
       </div>
 
       {/* Main TITLE */}
@@ -63,13 +81,12 @@ export const Hero = () => {
         className={styles.mask}
         animate={{
           WebkitMaskPosition: `${x - size / 2}px ${y - size / 2}px`,
-
           WebkitMaskSize: `${size}px`,
         }}
         transition={{ type: "tween", ease: "backOut", duration: 0.5 }}
       >
         <span
-          className="text-[4.275rem] lg:text-[6.875rem] max-xl:text-[7.3rem] font-black lg:mt-24 hidden lg:block cursor-default"
+          className="text-[4.275rem] lg:text-[6.875rem] 2xl:text-[9.3rem] font-black lg:mt-24 2xl:mt-10 hidden lg:block cursor-default"
           onMouseEnter={() => {
             setIsHovered(true);
           }}
@@ -78,19 +95,32 @@ export const Hero = () => {
           }}
         >
           <span className="ml-32">{"I'm"} Making a </span>
-          <br /> <span>good website base on </span> <br />
-          <span className="float-right">your requiments.</span>
+          <br /> <span className="2xl:text-[8rem]">
+            good website base on{" "}
+          </span>{" "}
+          <br />
+          <span className="float-right 2xl:text-[8rem]">your requiments.</span>
         </span>
       </motion.span>
 
-      <span className="text-[4.275rem] lg:text-[6.875rem] max-xl:text-[7.3rem] font-black mt-36 lg:mt-24 hidden lg:block cursor-default">
+      <motion.span
+        initial={{ opacity: 0, y: 150 }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+          transition: { duration: 1, delay: 1, bounce: true },
+        }}
+        viewport={{ once: true }}
+        className="text-[4.275rem] lg:text-[6.875rem] 2xl:text-[9.3rem] font-black lg:mt-24 2xl:mt-10 hidden lg:block cursor-default"
+      >
         <span className="ml-32">Creative Front- </span>
-        <br /> <span>end Developer base </span> <br />
-        <span className="float-right">on Viet Nam.</span>
-      </span>
+        <br /> <span className="2xl:text-[8rem]">end Developer base </span>{" "}
+        <br />
+        <span className="float-right 2xl:text-[8rem]">on Viet Nam.</span>
+      </motion.span>
 
       {/* small display */}
-      <span className="text-[4.275rem] sm:text-[6.875rem] max-xl:text-[7.3rem] font-black mt-36 pt-28 block lg:hidden">
+      <span className="text-[4.275rem] sm:text-[6.875rem] 2xl:text-[9.3rem] font-black mt-36 pt-28 block lg:hidden">
         Creative Front-end Developer base on Viet Nam.
       </span>
 

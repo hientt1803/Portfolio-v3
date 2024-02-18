@@ -1,6 +1,8 @@
-import { inView, motion } from "framer-motion";
+"use client";
+
 import { ArrowRight } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 interface SectionProps {
   number: string;
@@ -15,19 +17,13 @@ export const SectionTitle = ({
   rightTitle,
   isDivider,
 }: SectionProps) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [lineWidth, setLineWidth] = useState<number>(0);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const divider = document.querySelector(".divider-section");
-
-    if (divider) {
-      inView(divider, () => {
-        console.log("Element has entered the viewport");
-        setLineWidth(100);
-      });
-    }
+    setMounted(true);
   }, []);
+
+  if (!mounted) return null;
 
   return (
     <div>
@@ -46,9 +42,14 @@ export const SectionTitle = ({
       </div>
       {isDivider && (
         <motion.div
-          ref={ref}
-          style={{ width: `${lineWidth}%` }}
-          className="h-[1.5px] mt-3 bg-black divider-section transition-all ease-linear delay-100"
+          initial={{ opacity: 0, width: 0 }}
+          whileInView={{
+            opacity: 1,
+            width: "100%",
+            transition: { duration: 1 },
+          }}
+          viewport={{ once: true }}
+          className="h-1 relative bg-black mt-2"
         />
       )}
     </div>

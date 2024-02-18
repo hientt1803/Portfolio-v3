@@ -2,8 +2,11 @@ import { SectionTitle } from "@/components/SectionTitle";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
+import { motion } from "framer-motion";
+
 import { cn } from "@/lib/utils";
 import Paragraph from "./Character";
+import { ScrollProvider } from "@/components/providers/scrollProvider";
 
 const paragraph =
   "HELLO, I'M TRAN HIEN. I'M A FRONT-END DEVELOPER WITH 6 MONTHS OF EXPERIENCE.I LOVE DESIGN AND MAKE " +
@@ -44,14 +47,17 @@ export const Introduce = () => {
           <span className="font-bold">React (Next.js)</span> and{" "}
           <span className="font-bold">Java (Spring boot)</span>.
         </p> */}
+
         <div className="flex flex-col lg:flex-row gap-x-10 gap-y-10 md:gap-x-0 md:gap-y-10 justify-between items-start lg:items-center font-medium mt-32">
-          <div className="max-w-[300px] text-2xl">
+          <ScrollProvider className="max-w-[300px] text-2xl" direction={false}>
             Skill in both front-end and back-end. But My main{" "}
             <span className="underline">focus is front-end</span>
-          </div>
-          <Link href="#" className="text-lg flex items-center  gap-x-2">
-            More about me <ArrowRight />
-          </Link>
+          </ScrollProvider>
+          <ScrollProvider direction>
+            <Link href="#" className="text-lg flex items-center  gap-x-2">
+              More about me <ArrowRight />
+            </Link>
+          </ScrollProvider>
         </div>
       </div>
     </section>
