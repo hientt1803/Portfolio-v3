@@ -75,7 +75,7 @@ export const MenuButtonProvider = () => {
               </li>
               <li>
                 <Link
-                  href="/"
+                  href="/work"
                   className={cn(
                     "relative menu-link-active text-5xl text-neutral-400 transition-all hover:underline hover:text-white",
                     menuActive === 1 && "active"
@@ -87,7 +87,7 @@ export const MenuButtonProvider = () => {
               </li>
               <li>
                 <Link
-                  href="/"
+                  href="/about"
                   className={cn(
                     "relative menu-link-active text-5xl text-neutral-400 transition-all hover:underline hover:text-white",
                     menuActive === 2 && "active"

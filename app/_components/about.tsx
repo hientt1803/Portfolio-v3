@@ -6,7 +6,7 @@ import { ScrollProvider } from "@/components/providers/scrollProvider";
 
 export const AboutMe = () => {
   return (
-    <section className="pt-[100px]" id="about">
+    <section className="pt-[100px] container" id="about">
       <SectionTitle number={"03"} value={""} rightTitle={"ABOUT ME"} />
       <motion.div
         initial={{ opacity: 0, y: -150 }}

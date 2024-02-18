@@ -46,3 +46,24 @@ export const projects = [
     listImage: [],
   },
 ] as const;
+
+export const skillsData = [
+  "HTML",
+  "CSS",
+  "SCSS",
+  "Tailwind",
+  "Bootstrap",
+  "Responsive",
+  "Framer Motion",
+  "JavaScript",
+  "React(Next.js)",
+  "Redux",
+  "Java Core",
+  "Java Spring boot",
+  "Restfull APIs",
+  "Prisma",
+  "MongoDB",
+  "SQL",
+  "Git",
+  "Trello",
+] as const;

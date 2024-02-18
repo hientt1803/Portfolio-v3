@@ -4,7 +4,7 @@ import "./globals.css";
 import {
   MenuButtonProvider,
   MenuSocialProvider,
-} from "./_components/fixedMenu";
+} from "../components/fixedMenu";
 import { cn } from "@/lib/utils";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(inter.className, "scroll-smooth")}>
-        <div className="container relative">
+        <div className="">
           {/* Header */}
           <Header />
 

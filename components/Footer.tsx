@@ -2,7 +2,7 @@ import React from "react";
 
 export const Footer = () => {
   return (
-    <footer className="flex flex-col md:flex-row gap-y-8 justify-center text-center md:text-left md:justify-between items-center text-xl font-medium mt-[50px] pb-4">
+    <footer className="container flex flex-col md:flex-row gap-y-8 justify-center text-center md:text-left md:justify-between items-center text-xl font-medium mt-[50px] pb-4">
       <div>
         Design by{" "}
         <a

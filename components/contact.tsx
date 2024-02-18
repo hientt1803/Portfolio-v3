@@ -1,13 +1,19 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Button } from "@/components/ui/button";
 import { ChevronUp } from "lucide-react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 
-export const Contact = () => {
+interface ContactInterface {
+  pageNuber?: string;
+}
+
+export const Contact = ({ pageNuber }: ContactInterface) => {
   return (
-    <section className="pt-[100px]" id="contact">
-      <SectionTitle number={"04"} value={"CONTACT"} isDivider />
+    <section className="pt-[100px] container" id="contact">
+      <SectionTitle number={pageNuber || "00"} value={"CONTACT"} isDivider />
 
       <div className="flex flex-col justify-center items-center">
         <span className="text-xl md:text-3xl font-normal uppercase mt-32">
@@ -24,7 +30,7 @@ export const Contact = () => {
         </a>
 
         <motion.button
-          initial={{ opacity: 0, y: 100 }}
+          initial={{ opacity: 0, y: 150 }}
           whileInView={{
             opacity: 1,
             y: 0,

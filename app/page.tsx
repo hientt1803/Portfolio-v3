@@ -2,9 +2,9 @@
 
 import { Hero } from "@/app/_components/Hero";
 import { Introduce } from "./_components/introduce";
-import { RecentWork } from "./_components/recentWork";
+import { RecentWork } from "../components/recentWork";
 import { AboutMe } from "./_components/about";
-import { Contact } from "./_components/contact";
+import { Contact } from "../components/contact";
 
 // Scroll animation
 import Lenis from "@studio-freight/lenis";
@@ -38,7 +38,7 @@ export default function Home() {
       <Introduce />
       <RecentWork />
       <AboutMe />
-      <Contact />
+      <Contact pageNuber="04" />
     </main>
   );
 }

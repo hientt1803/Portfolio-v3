@@ -27,7 +27,7 @@ import useMousePosition from "@/lib/hooks/useMousePosition";
 
 import styles from "./sass/Hero.module.scss";
 
-export const Hero = () => { 
+export const Hero = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   const { x, y } = useMousePosition();
@@ -80,7 +80,7 @@ export const Hero = () => {
       <motion.span
         className={styles.mask}
         animate={{
-          WebkitMaskPosition: `${x - size / 2}px ${y - size / 2}px`,
+          WebkitMaskPosition: `${x || 0 - size / 2}px ${y || 0 - size / 2}px`,
           WebkitMaskSize: `${size}px`,
         }}
         transition={{ type: "tween", ease: "backOut", duration: 0.5 }}

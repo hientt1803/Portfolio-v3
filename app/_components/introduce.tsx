@@ -18,7 +18,7 @@ const secondParagraph =
 export const Introduce = () => {
   return (
     <section
-      className="flex flex-col md:flex-row justify-between pt-[100px]"
+      className="container flex flex-col md:flex-row justify-between pt-[100px]"
       id="introduce"
     >
       <div className="md:flex-1 ml-0 md:pl-28 mb-10 md:mb-0">

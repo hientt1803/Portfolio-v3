@@ -12,7 +12,7 @@ export const RecentWork = () => {
   const data = projects;
 
   return (
-    <section className="pt-[100px]" id="work">
+    <section className="pt-[100px] container" id="work">
       {/* Title */}
       <div className="ml-0">
         <SectionTitle
@@ -39,19 +39,25 @@ export const RecentWork = () => {
                     transition: { duration: 1, ease: "easeInOut" },
                   }}
                   viewport={{ once: true }}
-                  className="flex-1 order-2 flex flex-col items-center lg:items-start h-auto gap-y-16 lg:gap-16 p-10"
+                  className="flex-1 order-2 flex flex-col items-center lg:items-start h-auto gap-y-16 lg:gap-16 p-10 sticky top-0"
                 >
                   <p className="text-6xl lg:text-[5rem] lg:leading-[5rem] underline">
                     {data.title}
                   </p>
                   <span className="text-black/60 text-2xl">{data.desc}</span>
                   <div className="flex flex-col gap-y-4">{data.techStack}</div>
-                  <Button variant={"outline"} size={"lg"} asChild>
+                  <Button
+                    variant={"outline"}
+                    size={"lg"}
+                    asChild
+                    className="group"
+                  >
                     <Link
-                      href={data.slug}
+                      href={`/work/${data.slug}`}
                       className="font-semibold text-xl flex items-center gap-x-3"
                     >
-                      See more <ArrowRightToLine />
+                      See more{" "}
+                      <ArrowRightToLine className="group-hover:translate-x-3 transition-transform duration-200" />
                     </Link>
                   </Button>
                 </motion.div>
@@ -65,7 +71,7 @@ export const RecentWork = () => {
                   viewport={{ once: true }}
                   className="order-1 hidden lg:block lg:flex-2 p-10 mr-10"
                 >
-                  <Link href={data.slug}>
+                  <Link href={`/work/${data.slug}`}>
                     <Image
                       src={data.image}
                       width={700}
@@ -92,19 +98,25 @@ export const RecentWork = () => {
                   transition: { duration: 1, ease: "easeInOut" },
                 }}
                 viewport={{ once: true }}
-                className="flex-1 flex flex-col items-center lg:items-start h-auto gap-y-16 lg:gap-16 p-10"
+                className="flex-1 flex flex-col items-center lg:items-start h-auto gap-y-16 lg:gap-16 p-10 sticky top-0"
               >
                 <p className="text-6xl lg:text-[5rem] lg:leading-[5rem] underline">
                   {data.title}
                 </p>
                 <span className="text-black/60 text-2xl">{data.desc}</span>
                 <div className="flex flex-col gap-y-4">{data.techStack}</div>
-                <Button variant={"outline"} size={"lg"} asChild>
+                <Button
+                  variant={"outline"}
+                  size={"lg"}
+                  asChild
+                  className="group"
+                >
                   <Link
-                    href={data.slug}
+                    href={`/work/${data.slug}`}
                     className="font-semibold text-xl flex items-center gap-x-3"
                   >
-                    See more <ArrowRightToLine />
+                    See more{" "}
+                    <ArrowRightToLine className="group-hover:translate-x-3 transition-transform duration-200" />
                   </Link>
                 </Button>
               </motion.div>
@@ -118,7 +130,7 @@ export const RecentWork = () => {
                 viewport={{ once: true }}
                 className="hidden lg:block lg:flex-2 p-10 mr-10"
               >
-                <Link href={data.slug}>
+                <Link href={`/work/${data.slug}`}>
                   <Image
                     src={data.image}
                     width={700}
