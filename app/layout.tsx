@@ -23,13 +23,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(inter.className, "scroll-smooth")}>
-        <div className="">
+      <body className={inter.className}>
+        <div className="container relative">
           {/* Header */}
           <Header />
 
           {/* Main content */}
           {children}
+
+          {/* Fixed Menu */}
           <MenuSocialProvider />
           <MenuButtonProvider />
 

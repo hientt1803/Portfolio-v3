@@ -10,6 +10,7 @@ import { Contact } from "../components/contact";
 import Lenis from "@studio-freight/lenis";
 import { useEffect } from "react";
 import { motion, useScroll } from "framer-motion";
+import { MenuButtonProvider, MenuSocialProvider } from "@/components/fixedMenu";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();

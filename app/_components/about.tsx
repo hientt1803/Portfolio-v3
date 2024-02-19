@@ -13,15 +13,36 @@ export const AboutMe = () => {
         whileInView={{
           opacity: 1,
           y: 0,
-          transition: { duration: 1, delay: 1.5, ease: "easeInOut" },
+          transition: { duration: 1, delay: 0.8, ease: "easeInOut" },
         }}
         viewport={{ once: true }}
         className="flex justify-center items-center mb-24"
       >
         <span className="text-[3.3rem] md:text-[6.725rem] font-black uppercase mt-10 md:mt-0">
           Movie, <br />
-          Gaming, <br />
-          Music.
+          <motion.span
+            initial={{ opacity: 0, y: -150 }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              transition: { duration: 1, delay: 1, ease: "easeInOut" },
+            }}
+            viewport={{ once: true }}
+          >
+            Gaming,
+          </motion.span>
+          <br />
+          <motion.span
+            initial={{ opacity: 0, y: -150 }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              transition: { duration: 1, delay: 1.2, ease: "easeInOut" },
+            }}
+            viewport={{ once: true }}
+          >
+            Music.
+          </motion.span>
         </span>
       </motion.div>
 

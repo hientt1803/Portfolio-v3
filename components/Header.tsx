@@ -35,9 +35,20 @@ export const Header = () => {
       </Link>
 
       {/* Right time */}
-      <Button size="lg" asChild className="z-auto">
-        <span className="text-white text-xl">{time}</span>
-      </Button>
+      <div className="flex justify-between gap-x-2">
+        <Button size="lg" variant={"outline"} asChild className="z-auto">
+          <Link
+            href="./CV.pdf"
+            target="_blank"
+            className="text-md font-semibold"
+          >
+            Resume
+          </Link>
+        </Button>
+        <Button size="lg" asChild className="z-auto">
+          <span className="text-white text-xl">{time}</span>
+        </Button>
+      </div>
     </div>
   );
 };

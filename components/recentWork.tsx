@@ -76,7 +76,7 @@ export const RecentWork = () => {
                       src={data.image}
                       width={700}
                       height={800}
-                      className="z-10 object-cover hidden lg:block"
+                      className="z-10 object-cover hidden lg:block hover:shadow-lg hover:translate-y-[-12px] transition-transform"
                       alt={data.title}
                     />
                   </Link>
@@ -135,7 +135,7 @@ export const RecentWork = () => {
                     src={data.image}
                     width={700}
                     height={800}
-                    className="z-10 object-cover hidden lg:block"
+                    className="z-10 object-cover hidden lg:block hover:shadow-lg hover:translate-y-[-12px] transition-transform"
                     alt={data.title}
                   />
                 </Link>
