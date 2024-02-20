@@ -8,12 +8,16 @@ import { Contact } from "../components/contact";
 
 // Scroll animation
 import Lenis from "@studio-freight/lenis";
-import { useEffect } from "react";
-import { motion, useScroll } from "framer-motion";
-import { MenuButtonProvider, MenuSocialProvider } from "@/components/fixedMenu";
+import { useEffect, useRef } from "react";
 
 export default function Home() {
-  const { scrollYProgress } = useScroll();
+  const topRef = useRef<HTMLDivElement | null>(null);
+
+  const backToTop = () => {
+    topRef.current
+      ? topRef.current.scrollIntoView({ behavior: "smooth" })
+      : null;
+  };
 
   useEffect(() => {
     const lenis = new Lenis();
@@ -28,18 +32,12 @@ export default function Home() {
 
   return (
     <main className="min-h-screen z-10 w-full text-md">
-      {/* Scroll progress bar */}
-      <motion.div
-        style={{ scaleX: scrollYProgress }}
-        className="progress-bar"
-      />
-
       {/* Main content */}
-      <Hero />
+      <Hero valueRef={topRef} />
       <Introduce />
       <RecentWork />
       <AboutMe />
-      <Contact pageNuber="04" />
+      <Contact pageNuber="04" optFuction={backToTop} />
     </main>
   );
 }

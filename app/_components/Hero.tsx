@@ -3,7 +3,7 @@
 import { Poppins } from "next/font/google";
 import { ArrowDown } from "lucide-react";
 
-import { useState } from "react";
+import { Ref, useState } from "react";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
@@ -27,11 +27,9 @@ import useMousePosition from "@/lib/hooks/useMousePosition";
 
 import styles from "./sass/Hero.module.scss";
 
-export const Hero = () => {
+export const Hero = ({ valueRef }: { valueRef: any }) => {
   const [isHovered, setIsHovered] = useState(false);
-
   const { x, y } = useMousePosition();
-
   const size = isHovered ? 400 : 40;
 
   return (
@@ -40,6 +38,7 @@ export const Hero = () => {
         "mt-[80px] 2xl:mt-[250px] min-h-screen relative flex flex-col items-center justify-centere",
         textFont.className
       )}
+      ref={valueRef}
     >
       {/* Sub title*/}
       <div>
@@ -80,13 +79,15 @@ export const Hero = () => {
       <motion.span
         className={styles.mask}
         animate={{
-          WebkitMaskPosition: `${x || 0 - size / 2}px ${y || 0 - size / 2}px`,
+          WebkitMaskPosition: `${x ? x - size / 2 : 0}px ${
+            y ? y - size / 2 : 0
+          }px`,
           WebkitMaskSize: `${size}px`,
         }}
         transition={{ type: "tween", ease: "backOut", duration: 0.5 }}
       >
         <span
-          className="text-[4.275rem] lg:text-[6.875rem] 2xl:text-[9.3rem] font-black lg:mt-24 2xl:mt-10 hidden lg:block cursor-default"
+          className="text-[4.275rem] lg:text-[6.875rem] 2xl:text-[9.3rem] font-black lg:mt-24 2xl:mt-10 hidden lg:block pb-20"
           onMouseEnter={() => {
             setIsHovered(true);
           }}
@@ -95,7 +96,7 @@ export const Hero = () => {
           }}
         >
           <span className="ml-32">{"I'm"} Making a </span>
-          <br /> <span className="2xl:text-[8rem]">
+          <br /> <span className="2xl:text-[7rem]">
             good website base on{" "}
           </span>{" "}
           <br />
@@ -111,7 +112,7 @@ export const Hero = () => {
           transition: { duration: 1, delay: 1, bounce: true },
         }}
         viewport={{ once: true }}
-        className="text-[4.275rem] lg:text-[6.875rem] 2xl:text-[9.3rem] font-black lg:mt-24 2xl:mt-10 hidden lg:block cursor-default"
+        className="text-[4.275rem] lg:text-[6.875rem] 2xl:text-[9.3rem] font-black lg:mt-24 2xl:mt-10 hidden lg:block pb-20"
       >
         <span className="ml-32">Creative Front- </span>
         <br /> <span className="2xl:text-[8rem]">end Developer base </span>{" "}

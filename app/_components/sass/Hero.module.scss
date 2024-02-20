@@ -1,8 +1,12 @@
 .mask {
+    position: absolute;
     mask-image: url('../../../public/mask.svg');
     mask-repeat: no-repeat;
     mask-size: 40px;
     background: #000;
-    position: absolute;
     color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
 }

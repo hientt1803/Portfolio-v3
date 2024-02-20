@@ -8,9 +8,10 @@ import Link from "next/link";
 
 interface ContactInterface {
   pageNuber?: string;
+  optFuction?: any;
 }
 
-export const Contact = ({ pageNuber }: ContactInterface) => {
+export const Contact = ({ pageNuber, optFuction }: ContactInterface) => {
   return (
     <section className="pt-[100px] container" id="contact">
       <SectionTitle number={pageNuber || "00"} value={"CONTACT"} isDivider />
@@ -40,13 +41,14 @@ export const Contact = ({ pageNuber }: ContactInterface) => {
             },
           }}
           viewport={{ once: true }}
+          onClick={optFuction}
         >
           <Button
             variant={"default"}
             size={"lg"}
             className="mx-auto mt-32 rounded-full text-white text-lg"
           >
-            <Link href="#" className="flex items-center gap-x-4">
+            <Link href="" className="flex items-center gap-x-4">
               <ChevronUp className="w-8 h-8" /> Back to top
             </Link>
           </Button>

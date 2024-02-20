@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-// import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import { projects } from "@/lib/data";
 import { Contact } from "@/components/contact";
 
@@ -46,6 +45,10 @@ const WorkPage = ({ params }: any) => {
             naturalSlideHeight={125}
             totalSlides={project[0]?.listImage?.length}
             infinite
+            hasMasterSpinner
+            touchEnabled
+            dragEnabled
+            dragStep={1}
             className="w-full h-auto"
           >
             <Slider
@@ -62,8 +65,9 @@ const WorkPage = ({ params }: any) => {
                     src={item}
                     hasMasterSpinner
                     isBgImage
+                    onLoad={() => {}}
                     alt="Image carousel"
-                    className="object-contain group-hover:zoom-in-110 "
+                    className="object-contain group-hover:zoom-in-110"
                     style={{
                       height: "auto",
                     }}

@@ -8,6 +8,7 @@ import {
 import { cn } from "@/lib/utils";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { ProgressbarProvider } from "@/components/providers/ProgressbarProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,11 +26,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className="container relative">
+          {/* Progressbar */}
+          <ProgressbarProvider />
+
           {/* Header */}
           <Header />
 
           {/* Main content */}
-          {children}
+          <div className="overflow-hidden">{children}</div>
 
           {/* Fixed Menu */}
           <MenuSocialProvider />
